@@ -1,0 +1,108 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alarms</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Alarms</h1>
+        <p>Here is the list of all alarms.</p>
+        <label for="search-id">Search by Alarm ID:</label>
+        <input type="text" id="search-id" onkeyup="filterAlarms()">
+        <label for="search-text">Search by text:</label>
+        <input type="text" id="search-text" onkeyup="filterAlarms()">
+        <label for="filter-severity">Filter by Severity:</label>
+        <select id="filter-severity" onchange="filterAlarms()">
+            <option value="All">All</option>
+            <option value="&#39;Colon&#39;">&#39;Colon&#39;</option>
+<option value="&#39;Raise&#39;">&#39;Raise&#39;</option>
+        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Alarm ID</th>
+                    <th>Alarm Information</th>
+                    <th>Parameters</th>
+                    <th>Internal Severity</th>
+                    <th>Explanation</th>
+                    <th>Long Description</th>
+                    <th>Troubleshooting</th>
+                    <th>Context</th>
+                </tr>
+            </thead>
+            <tbody id="alarms-table">
+                
+        
+        <tr>
+            <td>11248</td>
+            <td>&quot;Queue &lt;name&gt; count &lt;count&gt; above limit&lt;queueWarnThreshold&gt;&quot;</td>
+            <td>&quot;&lt;name&gt;,&lt;count&gt;,&lt;queueWarnThreshold&gt;&quot;</td>
+            <td>&#39;Colon&#39;</td>
+            <td>&quot;DBQueueingLayer: Message queue almostfull&quot;</td>
+            <td>&quot;Message queue size exceeded the queue warning threshold,and is close to queue max size.&quot;</td>
+            <td>&quot;Reduce load or add databaseconnections&quot;</td>
+            <td><a href="#" class="context-link" data-context="DBQueueingLayer: QueueLimitExceeded for &amp;lt;name&amp;gt;">DBQueueingLayer: QueueLimitExceeded for &lt;name&gt;</a></td>
+        </tr>
+        
+        
+        <tr>
+            <td>11247</td>
+            <td>&quot;Queue &lt;name&gt; count &lt;count&gt; above limit&lt;queueWarnThreshold&gt;&quot;</td>
+            <td>&quot;&lt;name&gt;,&lt;count&gt;,&lt;queueWarnThreshold&gt;&quot;</td>
+            <td>&#39;Raise&#39;</td>
+            <td>&quot;DBQueueingLayer: Message queue almostfull&quot;</td>
+            <td>&quot;Message queue size exceeded the queue warning threshold,and is close to queue max size.&quot;</td>
+            <td>&quot;Reduce load or add databaseconnections&quot;</td>
+            <td><a href="#" class="context-link" data-context="DBQueueingLayer: QueueLimitExceeded for &amp;lt;name&amp;gt;">DBQueueingLayer: QueueLimitExceeded for &lt;name&gt;</a></td>
+        </tr>
+        
+            </tbody>
+        </table>
+        <div id="stats">
+            <p>Total alarms: 2</p><p>&#39;Raise&#39;: 1</p><p>&#39;Colon&#39;: 1</p>
+        </div>
+        <script>
+            function filterAlarms() {
+                const idInput = document.getElementById('search-id').value.toLowerCase();
+                const textInput = document.getElementById('search-text').value.toLowerCase();
+                const severityFilter = document.getElementById('filter-severity').value;
+                const rows = document.querySelectorAll('#alarms-table tr');
+
+                rows.forEach(row => {
+                    const cells = row.getElementsByTagName('td');
+                    const idMatch = cells[0].textContent.toLowerCase().includes(idInput);
+                    const textMatch = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(textInput));
+                    const severityMatch = severityFilter === 'All' || cells[3].textContent === severityFilter;
+                    row.style.display = idMatch && textMatch && severityMatch ? '' : 'none';
+                });
+            }
+
+            document.querySelectorAll('.context-link').forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    const context = event.target.dataset.context;
+                    document.querySelectorAll('#alarms-table tr').forEach(row => {
+                        const contextCell = row.getElementsByTagName('td')[7];
+                        row.style.display = contextCell && contextCell.textContent === context ? '' : 'none';
+                    });
+                });
+            });
+        </script>
+    </body>
+    </html>
+    

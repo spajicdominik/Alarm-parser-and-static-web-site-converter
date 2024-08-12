@@ -1,0 +1,6 @@
+11247¤&quot;Queue &lt;name&gt; count &lt;count&gt; above limit
+&lt;queueWarnThreshold&gt;&quot;¤parameter=&quot;&lt;name&gt;,&lt;count&gt;,&lt;queueWarnThreshold&gt;&quot;¤
+&#39;Raise&#39;¤short=&quot;DBQueueingLayer: Message queue almost
+full&quot;¤long=&quot;Message queue size exceeded the queue warning threshold,
+and is close to queue max size.&quot;¤repair=&quot;Reduce load or add database
+connections&quot;¤context=DBQueueingLayer: QueueLimitExceeded for &lt;name&gt;

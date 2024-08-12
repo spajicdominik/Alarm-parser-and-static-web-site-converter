@@ -1,0 +1,291 @@
+\documentclass{mathos}
+
+\begin{document}
+\renewcommand\bibname{Literatura}
+
+\sloppy
+
+\begin{titlepage}
+\begin{center}
+%\vspace*{-10ex}
+    \includegraphics[keepaspectratio=true,scale=0.4]{MathosLogo.png} \\ \vspace{1mm}
+       \textsc{Sveučilište Josipa Jurja Strossmayera u Osijeku} \\
+    \vspace{2mm}
+    \textsc{Fakultet primijenjene matematike i informatike}
+\end{center}
+
+\begin{center}
+
+    \vspace{4mm}
+     {Studij} %% Ispod su zakomentirani studiji pa odaberite odgovarajući studij
+
+%% Sveučilišni prijediplomski studij Matematika
+%% Sveučilišni prijediplomski studij Matematika i računarstvo
+
+\end{center}
+
+\vspace{25mm}
+\begin{center}
+    % naslov
+    {\LARGE{\bf  Naslov rada}}
+
+    \vspace{15mm}
+    %
+    {\large{\sc Završni rad}}
+
+
+\end{center}
+
+\vspace{50mm}
+
+\begin{minipage}[t]{0.47\textwidth}
+	{Mentor:} \normalsize\vspace{3mm} %% Ako je potrebno dodati komentora odkomentirajte redove 44, 45, 46. Pogledajte donje primjere za navođenje imena mentora/komentora:
+	{\bf\\ \large{Ime i prezime mentora}}
+%% \\[2ex]
+%% {Komentor:} \normalsize\vspace{3mm}
+	%% {\bf\\ \large{Ime i prezime komentora}}
+
+%% Imena mentora/komentora:
+
+%% prof.\,dr.\,sc. Ime i prezime
+%% izv.\,prof.\,dr.\,sc. Ime i prezime
+%% doc.\,dr.\,sc. Ime i prezime
+%% dr.\,sc. Ime i prezime
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\textwidth}\raggedleft
+	{{Student:}{\normalsize\vspace{3mm} \bf\\ \large{Ime i prezime studenta}}}
+\end{minipage}
+
+\vspace*{\fill}
+\centering{\normalsize{Osijek, 20xx}}
+\end{titlepage}
+
+
+
+\tableofcontents
+\thispagestyle{empty}
+
+
+
+\chapter{Uvod}\label{Uvod}
+\pagenumbering{arabic}
+
+\noindent
+Završni rad sadrži sljedeće cjeline i to navedenim redoslijedom:
+\bigskip
+
+{\it Sadržaj}: sastoji se od naslova poglavlja i točaka s rednim brojevima odgovarajućih početnih
+stranica.
+
+{\it Uvod}: treba sažeto opisati zadatak završnog rada te navesti sadržaj pojedinih
+poglavlja završnog rada.
+
+{\it Glavni dio rada}: treba ga podijeliti u poglavlja i točke koje
+čine određenu logičku cjelinu. Moguće je dodati i odgovarajuće potpoglavlje.
+Neki savjeti za pisanje ovog dijela rada dani su i u Poglavljima~\ref{poglavlje_1} i \ref{poglavlje_2} ovih uputa.
+
+{\it Literatura}: korištenu literaturu treba navesti abecednim redom prema prezimenu prvog autora.
+Primjeri nekih referenci nalaze se u poglavlju {\it Literatura}. Korištene reference potrebno je
+citirati na odgovarajućim mjestima u radu.
+
+{\it Sažetak}: ukratko treba opisati sadržaj završnog rada.
+
+{\it Ključne riječi}: navesti listu ključnih riječi vezanih uz sadržaj rada.
+
+{\it Engleski prijevod}: title, summary i keywords odnose se na englesku verziju naslova rada,
+sažetak i ključne riječi.
+
+{\it Životopis}: piše se u prvom licu jednine i treba sadržavati biografske podatke,
+podatke o sudjelovanju na natjecanjima te podatke o osvojenim nagradama.
+
+\bigskip
+\noindent
+Obzirom na naslovnu stranicu, pažljivo pogledajte zakomentirane dijelove LaTeX koda, a odnose se na smjer studija, pisanje imena mentora i eventualno dodavanje komentora.
+Svako novo poglavlje ({\verb $\$chapter}) počinje na novom listu. Ako vam je potreban neki dodatni paket, jednostavno ga dodajte na početku koda.
+
+\bigskip
+\noindent
+Predlaže se dvostrano štampanje završnog rada pa nije potrebno brisati prazne stranice generirane ovim kodom.
+
+
+
+\chapter{Upute - prvi dio}\label{poglavlje_1}
+
+\section{Matematička okruženja}
+
+Definicije, teoreme i ostale rezultate s mogućim dokazima pišemo koristeći odgovarajuća okruženja. Primjerice,
+\begin{defin}
+Ovo je prva definicija.
+\end{defin}
+Ako teorem ili bilo koji drugi rezultat nije vaš originalni rezultat, onda ga treba citirati. Dakle, napisati odakle je taj rezultat preuzet. Primjerice,
+\begin{teorem}[{vidjeti \cite[Theorem 1]{Acz}}]  \label{teorem1}
+Neka je $n$ prirodan broj. \dots
+\end{teorem}
+
+\begin{proof}
+Ovdje pošemo dokaz Teorema~\ref{teorem1}.
+\end{proof}
+Uočite kako je simbol $\Box$ po automatizmu dodan na kraju dokaza i ne treba ga ``umjetno'' dodavati.
+
+\begin{primjer}\label{prim1}
+Treba nastojati samostalno konstruirati primjere. Ako su neki od njih također preuzeti iz literature, opet ih treba citirati poput Teorema~\ref{teorem1}.
+\end{primjer}
+\noindent
+{\it Rješenje.} Ovdje dolazi rješenje vašeg Primjera~\ref{prim1} (ako je predviđeno u tome obliku).
+
+\subsection{Tablice i slike}
+
+Slike uglavnom stvaramo u {\it .eps} formatu. Može se koristiti i drugi format slike, kao primjerice  Mathos logo na naslovnoj stranici, u formatu {\it .png}. Slike uvodimo na sljedeći način:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.9]{fig1.eps}
+\caption{Ovo je naša slika.}
+\label{fig1}
+\end{figure}
+
+Ako je Slika~\ref{fig1} preuzeta iz neke literature, također ju treba citirati.
+
+\newpage
+Tablice se uvode na standardni način, a oblik ovisi o njihovoj strukturi. Primjerice,
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|c|c|c|}\hline
+Red & Stupac& Ukupno\\\hline
+2 & 3 & 5\\\hline
+3 & 9 & 12\\\hline
+\end{tabular}
+\caption{Ovo je prva tablica.}
+\label{table1}
+\end{table}
+
+\noindent
+Na rezultate, slike, tablice i ostale strukture u tekstu se poziva na sljedeći način, ovisno o kontekstu rečenice: `` Prema dokazu Teorema~\ref{teorem1} slijedi \dots; na
+Slici~\ref{fig1} prikazano je \dots; iz Tablice~\ref{table1} može se zaključiti \dots; Više o \dots može se vidjeti u~\cite{JunBae}.
+
+
+
+\chapter{Upute - drugi dio}\label{poglavlje_2}
+
+\section{Prijelomi formula}
+Kod korištenja okruženja za pisanje formula treba voditi računa o njihovom prijelomu i numeriranju. Evo nekoliko primjera:
+\begin{align*}
+    &u+\arctan x +x^3+4x^2+\sin{x}  \\
+    &\qquad =\frac{1}{1 + x^2} \sin{2x}+e^x.
+\end{align*}
+
+\begin{eqnarray}\label{eq_1}
+\begin{aligned}
+    &u+\arctan x +x^3+4x^2+\sin{x}  \\
+    &\qquad =\frac{1}{1 + x^2} \sin{2x}+e^x.
+\end{aligned}
+\end{eqnarray}
+
+\begin{eqnarray}
+\begin{aligned}
+    u=&\arctan x +x^3+4x^2+\sin{x}  \\
+    &+\frac{1}{1 + x^2} \sin{2x}+e^x.
+\end{aligned}
+\end{eqnarray}
+
+\begin{align*}
+    u=&\arctan x +x^3+4x^2+\sin{x}  \\
+    v=&\frac{1}{1 + x^2} \sin{2x}+e^x.\label{eef}
+\end{align*}
+
+\begin{align}
+    u=&\arctan x +x^3+4x^2+\sin{x}  \\
+    v=&\frac{1}{1 + x^2} \sin{2x}+e^x.\label{eef}
+\end{align}
+
+\begin{align*}
+    u=&\arctan x +x^3+4x^2+\sin{x}  \\
+    &+\frac{1}{1 + x^2} \sin{2x}+e^x\\
+    =&\arctan x +x^3+4x^2+\sin{x}.
+\end{align*}
+Nije potrebno numerirati svaki izraz već samo one na koje ćete se u tekstu pozivati. Pozivamo se na način: ``Prema formuli \eqref{eq_1} \dots''
+
+\noindent
+Uočite kako formule i ostali matematički izrazi nikada ne završavaju s $+,-,\cdot,=$ već se znakovi prenose u novi red, kao u gornjim primjerima.
+
+\noindent
+Kod pisanja rada treba paziti da tekst, formule, tablice, slike, itd., ne izlaze iz margina rada.
+
+\section{Programerska okruženja}
+
+U ovom radu možete pisati pseudokod korištenjem \verb+algpseudocode+ paketa.
+
+\begin{algorithm}
+\caption{primjer algoritma}
+\begin{algorithmic}[1]
+\Procedure{Algoritam}{$n$}
+\State $i \gets n$
+\If{$i\geq 5$}
+    \State $i \gets i-1$
+\Else
+    \If{$i\leq 3$}
+        \State $i \gets i+2$
+    \EndIf
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\noindent
+Postoji mogućnost izlistavanja programskog koda koristeći \verb+listing+ paket.
+
+\lstinputlisting[language=C++]{code1.cpp}
+
+
+%% Literatura
+
+\begin{thebibliography}{30}
+\addcontentsline{toc}{chapter}{Literatura}
+\bibitem{Acz}
+{\sc J.~Acz\'{e}l}, {\em Lectures of Functional Equations and Their Applications}, Academic Press, New York, 1966. ({\it ovo je korištena knjiga}).
+
+\bibitem{JunBae}
+{\sc S.~Jung, J.~Bae}, {\em  Some functional equations originating from number theory}, Proc. Indian Acad. Sci. (Math. Sci.) {\bf{113}}(2003), 91--98.
+({\it ovo je korišteni znanstveni članak}).
+
+\bibitem{ } {\em The On-Line Encyclopedia of Integer Sequences}, dostupno na \newline {\verb"\https://oeis.org"}. ({\it ovo je korišteni izvor s interneta}).
+\end{thebibliography}
+
+
+
+
+\chapter*{Sažetak}
+\markboth{}{SAŽETAK}
+\addcontentsline{toc}{chapter}{Sažetak}
+
+Ovdje pišemo sažetak završnog rada.
+
+\section*{Ključne riječi}
+
+Ovdje malim slovima (osim ako se ne radi o imenu) redom pišemo ključne riječi.
+
+
+
+
+\chapter*{Naslov rada na engleskom jeziku}
+\markboth{}{SUMMARY}
+
+\section*{Summary}
+\addcontentsline{toc}{chapter}{Summary}
+
+Ovdje pišemo sažetak na engleskom jeziku.
+
+\section*{Keywords}
+
+Ovdje malim slovima (osim ako se ne radi o imenu) redom pišemo ključne riječi na engleskom jeziku.
+
+
+
+\chapter*{Životopis}
+\addcontentsline{toc}{chapter}{Životopis}
+
+Ovdje pišemo životopis u prvom licu jednine.
+
+\end{document}
