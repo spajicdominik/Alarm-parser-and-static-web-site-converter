@@ -1,0 +1,4 @@
+INSTRUCTIONS FOR RUNNING THE APP:
+1) Open application.py file in a Python IDE/Visual Studio Code
+2) Run with Python 3.9.7. or newer
+3) Open alarms.html file, your data should be rendered 
