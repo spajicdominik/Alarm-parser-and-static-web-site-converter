@@ -1,33 +1,35 @@
 import os
 import html
 
+def clean_field(field):
+    field = field.strip().strip('"').strip("'")
+    prefixes = ["parameter=", "short=", "long=", "repair=", "context="]
+    for prefix in prefixes:
+        if field.startswith(prefix):
+            field = field[len(prefix):]
+    return html.escape(field)
+
 def load_alarms(file_paths):
     alarms = []
-    categories = ["parameter=", "short=", "long=", "repair=", "context="]       #separators
 
     for file_path in file_paths:
         text = open(file_path, "r", encoding='utf-8')
         lines = text.readlines()
-        new_lines = []                                      #loading all alarm files and removing unwanted character and empty spaces 
-        for line in lines:
-            new_lines.append(line.removesuffix('\n'))
-            line = line.removesuffix('\n')
-
-        s = ""
-        new_text = s.join(new_lines).strip().strip("'").strip('"').split("¤")
-
-        if len(new_text) == 8:
+        for line in lines[1:]:
+            fields = line.split('¤')
+            if len(fields) < 8:
+                    continue
             alarm = {
-                'Alarm ID' : new_text[0],
-                'Alarm Information' : new_text[1],
-                'Parameters' : new_text[2].split(categories[0])[1],
-                'Internal Severity' : new_text[3],                          #removing separators and saving information to a dictionary
-                'Explanation' : new_text[4].split(categories[1])[1],
-                'Long Description' : new_text[5].split(categories[2])[1],
-                'Troubleshooting' : new_text[6].split(categories[3])[1],
-                'Context' : new_text[7].split(categories[4])[1],
-            }
-        alarms.append(alarm)
+                    'Alarm ID': clean_field(fields[0]),
+                    'Alarm Information': clean_field(fields[1]),
+                    'Parameters': clean_field(fields[2]),
+                    'Internal Severity': clean_field(fields[3]),
+                    'Explanation': clean_field(fields[4]),
+                    'Long Description': clean_field(fields[5]),
+                    'Troubleshooting': clean_field(fields[6]),
+                    'Context': clean_field(fields[7])
+                }
+            alarms.append(alarm)
     return alarms
 
 
@@ -152,7 +154,7 @@ def generate_html(alarms):              #function for generating HTML code based
         f.write(html_content)
 
 #Main script
-file_paths = ['alarms1.txt', 'alarms2.txt']
+file_paths = ['alarms1.txt']
 alarms = load_alarms(file_paths)
 generate_html(alarms)
 
