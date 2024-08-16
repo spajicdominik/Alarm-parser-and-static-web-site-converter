@@ -1,0 +1,1 @@
+10131¤"<me>: Unable to create coder: <e>"¤parameter="<me>,<e>"¤'Error'¤short="CoderPlug: Failed to create coder"¤long="CoderPlug could not create coder due to wrong configuration."¤repair="Verify the values of configuration parameters 'Protocol', 'Encoding' and the dictionary name."¤context=
