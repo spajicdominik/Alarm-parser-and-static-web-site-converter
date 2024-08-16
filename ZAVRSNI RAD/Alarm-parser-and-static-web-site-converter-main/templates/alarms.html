@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alarms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Alarms</h1>
+    <p>Here is the list of all alarms.</p>
+    
+    <label for="search-id">Search by Alarm ID:</label>
+    <input type="text" id="search-id" onkeyup="filterAlarms()">
+    
+    <label for="search-text">Search by text:</label>
+    <input type="text" id="search-text" onkeyup="filterAlarms()">
+    
+    <label for="filter-severity">Filter by Severity:</label>
+    <select id="filter-severity" onchange="filterAlarms()">
+        <option value="All">All</option>
+        {% for severity in severity_options %}
+            <option value="{{ severity }}">{{ severity }}</option>
+        {% endfor %}
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Alarm ID</th>
+                <th>Alarm Information</th>
+                <th>Parameters</th>
+                <th>Internal Severity</th>
+                <th>Explanation</th>
+                <th>Long Description</th>
+                <th>Troubleshooting</th>
+                <th>Context</th>
+            </tr>
+        </thead>
+        <tbody id="alarms-table">
+            {% for alarm in alarms %}
+            <tr>
+                <td>{{ alarm["Alarm ID"] }}</td>
+                <td>{{ alarm["Alarm Information"] }}</td>
+                <td>{{ alarm["Parameters"] }}</td>
+                <td>{{ alarm["Internal Severity"] }}</td>
+                <td>{{ alarm["Explanation"] }}</td>
+                <td>{{ alarm["Long Description"] }}</td>
+                <td>{{ alarm["Troubleshooting"] }}</td>
+                <td><a href="#" class="context-link" data-context="{{ alarm["Context"] }}">{{ alarm["Context"] }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="stats">
+        <p>Total alarms: {{ alarms|length }}</p>
+        {% for severity, count in severity_counts.items() %}
+            <p>{{ severity }}: {{ count }}</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        function filterAlarms() {
+            const idInput = document.getElementById('search-id').value.toLowerCase();
+            const textInput = document.getElementById('search-text').value.toLowerCase();
+            const severityFilter = document.getElementById('filter-severity').value;
+            const rows = document.querySelectorAll('#alarms-table tr');
+
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                const idMatch = cells[0].textContent.toLowerCase().includes(idInput);
+                const textMatch = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(textInput));
+                const severityMatch = severityFilter === 'All' || cells[3].textContent === severityFilter;
+                row.style.display = idMatch && textMatch && severityMatch ? '' : 'none';
+            });
+        }
+
+        document.querySelectorAll('.context-link').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const context = event.target.dataset.context;
+                document.querySelectorAll('#alarms-table tr').forEach(row => {
+                    const contextCell = row.getElementsByTagName('td')[7];
+                    row.style.display = contextCell && contextCell.textContent === context ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

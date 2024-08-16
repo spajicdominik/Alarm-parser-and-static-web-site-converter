@@ -1,0 +1,1 @@
+10011¤"<coder>: Unable to decode COPS message: <e>"¤parameter="<coder>,<e>"¤'Warning'¤short="COPSCoder: Unable to decode message"¤long="COPSCoder was unable to decode the message. Can be caused by wrong message format."¤repair="Verify that the incoming message is not corrupt (snoop). Verify dictionary."¤context=

@@ -1,0 +1,1 @@
+10015¤"<coder>: skipping unknown Flag <flag>"¤parameter="<coder>,<flag>"¤'Warning'¤short="COPSCoder: Unknown flag"¤long="COPSCoder: Unknown flag. Flag could not be found in the dictionary."¤repair="Verify that the flag is defined in the dictionary"¤context=
