@@ -47,7 +47,7 @@
                 <td>{{ alarm["Explanation"] }}</td>
                 <td>{{ alarm["Long Description"] }}</td>
                 <td>{{ alarm["Troubleshooting"] }}</td>
-                <td><a href="#" class="context-link" data-context="{{ alarm["Context"] }}">{{ alarm["Context"] }}</a></td>
+                <td><a href="#" class="context-link" data-context="{{ alarm["Context"] }}" onclick="filterByContext(event)">{{ alarm["Context"] }}</a></td>
             </tr>
             {% endfor %}
         </tbody>

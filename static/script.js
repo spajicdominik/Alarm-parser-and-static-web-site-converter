@@ -23,3 +23,23 @@ document.querySelectorAll('.context-link').forEach(link => {{
         }});
     }});
 }});
+
+function filterByContext(event) {
+    event.preventDefault();
+  
+    const context = event.target.getAttribute('data-context');
+  
+    const rows = document.querySelectorAll('#alarms-table tr');
+  
+    rows.forEach(row => {
+        const link = row.querySelector('.context-link');
+        if (link) {
+            const rowContext = link.getAttribute('data-context');
+            if (rowContext === context) {
+                row.style.display = ''; 
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+  }
