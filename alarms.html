@@ -4,7 +4,20 @@
     <head>
         <meta charset="UTF-8">
         <title>Alarms</title>
-        <link rel="stylesheet" href="styles.css">
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <h1>Alarms</h1>
@@ -36,7 +49,6 @@
                 
         
         <tr>
-<<<<<<< Updated upstream
             <td>10006</td>
             <td>Error during processing of &lt;msg&gt; in &lt;appl&gt;: &lt;e|stacktrace&gt;</td>
             <td>&quot;&lt;msg&gt;,&lt;appl&gt;,&lt;e&gt;</td>
@@ -45,21 +57,10 @@
             <td>&quot;A Exception occurred while forwarding the message to the application flow, or during the flows processing of the message.</td>
             <td>&quot;Check the exception and stacktrace logged in the alarm, and the application where error occurred.</td>
             <td><a href="#" class="context-link" data-context=""></a></td>
-=======
-            <td>11248</td>
-            <td>&quot;Queue &lt;name&gt; count &lt;count&gt; above limit&lt;queueWarnThreshold&gt;&quot;</td>
-            <td>&quot;&lt;name&gt;,&lt;count&gt;,&lt;queueWarnThreshold&gt;&quot;</td>
-            <td>&#39;Colon&#39;</td>
-            <td>&quot;DBQueueingLayer: Message queue almostfull&quot;</td>                     
-            <td>&quot;Message queue size exceeded the queue warning threshold,and is close to queue max size.&quot;</td>
-            <td>&quot;Reduce load or add databaseconnections&quot;</td>
-            <td><a href="#" class="context-link" data-context="DBQueueingLayer: QueueLimitExceeded for &amp;lt;name&amp;gt;">DBQueueingLayer: QueueLimitExceeded for &lt;name&gt;</a></td>
->>>>>>> Stashed changes
         </tr>
         
         
         <tr>
-<<<<<<< Updated upstream
             <td>10011</td>
             <td>&lt;coder&gt;: Unable to decode COPS message: &lt;e&gt;</td>
             <td>&quot;&lt;coder&gt;,&lt;e&gt;</td>
@@ -164,26 +165,12 @@
             <td>&quot;CoderPlug could not create coder due to wrong configuration.</td>
             <td>&quot;Verify the values of configuration parameters &#x27;Protocol&#x27;, &#x27;Encoding&#x27; and the dictionary name.</td>
             <td><a href="#" class="context-link" data-context=""></a></td>
-=======
-            <td>11247</td>
-            <td>&quot;Queue &lt;name&gt; count &lt;count&gt; above limit&lt;queueWarnThreshold&gt;&quot;</td>
-            <td>&quot;&lt;name&gt;,&lt;count&gt;,&lt;queueWarnThreshold&gt;&quot;</td>
-            <td>&#39;Raise&#39;</td>
-            <td>&quot;DBQueueingLayer: Message queue almostfull&quot;</td>                     
-            <td>&quot;Message queue size exceeded the queue warning threshold,and is close to queue max size.&quot;</td>
-            <td>&quot;Reduce load or add databaseconnections&quot;</td>
-            <td><a href="#" class="context-link" data-context="DBQueueingLayer: QueueLimitExceeded for &amp;lt;name&amp;gt;">DBQueueingLayer: QueueLimitExceeded for &lt;name&gt;</a></td>
->>>>>>> Stashed changes
         </tr>
         
             </tbody>
         </table>
         <div id="stats">
-<<<<<<< Updated upstream
             <p>Total alarms: 10</p><p>Error: 6</p><p>Warning: 4</p>
-=======
-            <p>Total alarms: 2</p><p>&#39;Colon&#39;: 1</p><p>&#39;Raise&#39;: 1</p>
->>>>>>> Stashed changes
         </div>
         <script>
             function filterAlarms() {
