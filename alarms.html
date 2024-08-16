@@ -43,7 +43,7 @@
             <td>&quot;Exception occurred when a flow processes a message.</td>                     
             <td>&quot;A Exception occurred while forwarding the message to the application flow, or during the flows processing of the message.</td>
             <td>&quot;Check the exception and stacktrace logged in the alarm, and the application where error occurred.</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -55,7 +55,7 @@
             <td>&quot;COPSCoder: Unable to decode message</td>                     
             <td>&quot;COPSCoder was unable to decode the message. Can be caused by wrong message format.</td>
             <td>&quot;Verify that the incoming message is not corrupt (snoop). Verify dictionary.</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -67,7 +67,7 @@
             <td>&quot;COPSCoder: Unknown flag</td>                     
             <td>&quot;COPSCoder: Unknown flag. Flag could not be found in the dictionary.</td>
             <td>&quot;Verify that the flag is defined in the dictionary</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -79,7 +79,7 @@
             <td>&quot;Rules engine can&#x27;t process a message because the application was removed meanwhile.</td>                     
             <td>&quot;Rules engine could not process the message because the application could not be found while forwarding the message.</td>
             <td>&quot;Example error causes: it was tried to reload an application as provisioning chunk, but the reloaded config was empty, or compiling the reloaded handlers was not successful.</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -91,7 +91,7 @@
             <td>&quot;Rules engine can&#x27;t process a message because the application was removed meanwhile.</td>                     
             <td>&quot;Could not find the application while looking for an appropriate flow for the received message.</td>
             <td>&quot;Example error causes: it was tried to reload an application as provisioning chunk, but the reloaded config was empty, or compiling the reloaded handlers was not successful.</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -103,7 +103,7 @@
             <td>&quot;Reconfiguration of an RulesEngine caused the removal of an application.</td>                     
             <td>&quot;One of the applications got removed while reconfiguring a RulesEngine. The removed application could be removed intentionally or unintended.</td>
             <td>&quot;This Warning should encourage the operator to check if the application really should be removed.</td>
-            <td><a href="#" class="context-link" data-context="SAMMonitor:LO:&amp;lt;name&amp;gt;">SAMMonitor:LO:&lt;name&gt;</a></td>
+            <td><a href="#" class="context-link" data-context="SAMMonitor:LO:&lt;name&gt;" onclick="filterByContext(event)">SAMMonitor:LO:&lt;name&gt;</a></td>
         </tr>
         
         
@@ -115,7 +115,7 @@
             <td>&quot;An exception occurred during Rules Engine reconfiguration.</td>                     
             <td>&quot;Reconfiguring Rules engine applications by reloading them as a Provisioning chunk was not successful.</td>
             <td>&quot;The alarm shows the exception and the engine where it occurred. Check the config in the provisioning chunk for errors.</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -127,7 +127,7 @@
             <td>&quot;RADIUSCoder: Could not encode attribute</td>                     
             <td>&quot;RADIUSCoder could not encode an attribute. Possible attribute type mismatch.</td>
             <td>&quot;Verify that the application has inserted an attribute of the correct type</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -139,7 +139,7 @@
             <td>&quot;Caught unhandled exception</td>                     
             <td>&quot;Socket is or will be closed</td>
             <td>&quot;See log file for further details</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
         
@@ -151,13 +151,13 @@
             <td>&quot;CoderPlug: Failed to create coder</td>                     
             <td>&quot;CoderPlug could not create coder due to wrong configuration.</td>
             <td>&quot;Verify the values of configuration parameters &#x27;Protocol&#x27;, &#x27;Encoding&#x27; and the dictionary name.</td>
-            <td><a href="#" class="context-link" data-context=""></a></td>
+            <td><a href="#" class="context-link" data-context="" onclick="filterByContext(event)"></a></td>
         </tr>
         
             </tbody>
         </table>
         <div id="stats">
-            <p>Total alarms: 10</p><p>Warning: 4</p><p>Error: 6</p>
+            <p>Total alarms: 10</p><p>Error: 6</p><p>Warning: 4</p>
         </div>
         <script src="script.js"></script>
     </body>

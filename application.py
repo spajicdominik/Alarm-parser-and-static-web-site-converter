@@ -40,7 +40,7 @@ def generate_html(alarms):              #function for generating HTML code based
     alarms_html = ''
     for alarm in alarms:
         context = alarm['Context']
-        context_html = f'<a href="#" class="context-link" data-context="{html.escape(context)}">{context}</a>'      #hyperlink for displaying alarms with corresponding context - !!!WORK IN PROGRESS!!!!
+        context_html = f'<a href="#" class="context-link" data-context="{context}" onclick="filterByContext(event)">{context}</a>'      #hyperlink for displaying alarms with corresponding context - !!!WORK IN PROGRESS!!!!
 
         alarms_html += f'''
         
