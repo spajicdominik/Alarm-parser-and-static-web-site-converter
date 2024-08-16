@@ -72,20 +72,7 @@ def generate_html(alarms):              #function for generating HTML code based
     <head>
         <meta charset="UTF-8">
         <title>Alarms</title>
-        <style>
-            table {{
-                width: 100%;
-                border-collapse: collapse;
-            }}
-            th, td {{
-                border: 1px solid black;
-                padding: 8px;
-                text-align: left;
-            }}
-            th {{
-                cursor: pointer;
-            }}
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <h1>Alarms</h1>
