@@ -11,8 +11,10 @@ Project includes:
 INSTRUCTIONS:
 1) Open the project in an IDE of your choice (VSC or PyCharm works best)
 2) Make sure you are running Python 3.9.7. or newer
-3) Open application.py
-4) If needed, add more alarm text files and include them in the array at line 155.
-5) Run the script. Your newly rendered HTML file should be in the folder ready for use.
+3) Run app.py Python script
+4) Install dependencies with NPM
+5) Run server.js with Node.js (node server.js in the Terminal)
+6) If needed, add more alarm text files and include them in the array at line 155.
+7) Run the script. Your newly rendered HTML file should be in the folder ready for use.
 
 Made and maintained by Dominik Spajic
