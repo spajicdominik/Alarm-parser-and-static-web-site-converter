@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Alarms</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 <body>
     <h1>Alarms</h1>
@@ -59,5 +60,6 @@
             <p>{{ severity }}: {{ count }}</p>
         {% endfor %}
     </div>
+
 </body>
 </html>
