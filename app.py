@@ -52,7 +52,6 @@ def update_alarms_data():
     alarms_data = load_alarms(file_paths)
     
     print('Emitting update_alarms event with data:', alarms_data)
-    socketio.emit('update_alarms', {'alarms': alarms_data})
     
 class Watcher(FileSystemEventHandler):
     def on_modified(self, event):

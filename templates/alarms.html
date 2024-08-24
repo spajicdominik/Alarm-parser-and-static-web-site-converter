@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+    
+    
 </head>
 <body>
     <h1>Alarms</h1>
@@ -60,6 +63,5 @@
             <p>{{ severity }}: {{ count }}</p>
         {% endfor %}
     </div>
-
 </body>
 </html>
