@@ -83,6 +83,123 @@ def generate_html(alarms):
         </tbody>
     </table>
     '''
+    
+    style = '''
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin-top: 2%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 15px;
+            background-color: rgba(231, 253, 255, 0.2);
+            color: #000000;
+        }
+
+        th {
+            cursor: pointer;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: #c9feff;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-image: radial-gradient(ellipse at top left, #a0a0a0, #ffffff);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        tbody td {
+            position: relative;
+        }
+
+        tbody td:hover:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255,255,255,0.2);
+            z-index: -1;
+        }
+
+        .stats {
+            width: 50%;
+        }
+    </style>
+    '''
+
+    script = '''
+    <script>
+        function filterAlarms() {
+  const idInput = document.getElementById("search-id").value.toLowerCase();
+  const textInput = document.getElementById("search-text").value.toLowerCase();
+  const severityFilter = document.getElementById("filter-severity").value;
+  const rows = document.querySelectorAll("#alarms-table tr");
+
+  rows.forEach((row) => {
+    const cells = row.getElementsByTagName("td");
+    const idMatch = cells[0].textContent.toLowerCase().includes(idInput);
+    const textMatch = Array.from(cells).some((cell) =>
+      cell.textContent.toLowerCase().includes(textInput)
+    );
+    const severityMatch =
+      severityFilter === "All" || cells[3].textContent === severityFilter;
+    row.style.display = idMatch && textMatch && severityMatch ? "" : "none";
+  });
+}
+
+document.querySelectorAll(".context-link").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const context = event.target.dataset.context;
+    document.querySelectorAll("#alarms-table tr").forEach((row) => {
+      const contextCell = row.getElementsByTagName("td")[7];
+      row.style.display =
+        contextCell && contextCell.textContent === context ? "" : "none";
+    });
+  });
+});
+
+function filterByContext(event) {
+  event.preventDefault();
+
+  const context = event.target.getAttribute('data-context');
+
+  const rows = document.querySelectorAll('#alarms-table tr');
+
+  rows.forEach(row => {
+      const link = row.querySelector('.context-link');
+      if (link) {
+          const rowContext = link.getAttribute('data-context');
+          if (rowContext === context) {
+              row.style.display = ''; 
+          } else {
+              row.style.display = 'none';
+          }
+      }
+  });
+}
+    </script>
+    '''
 
     html_content = f'''
     <!DOCTYPE html>
@@ -90,7 +207,7 @@ def generate_html(alarms):
     <head>
         <meta charset="UTF-8">
         <title>Alarms</title>
-        <link rel="stylesheet" href="styles.css">
+        {style}
     </head>
     <body>
         <h1>Alarms</h1>
@@ -124,7 +241,7 @@ def generate_html(alarms):
         <div id="stats">
             {stats_html}
         </div>
-        <script src="script.js"></script>
+       {script}
     </body>
     </html>
     '''
