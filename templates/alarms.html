@@ -54,10 +54,27 @@
     </table>
 
     <div id="stats">
-        <p>Total alarms: {{ alarms|length }}</p>
-        {% for severity, count in severity_counts.items() %}
-            <p>{{ severity }}: {{ count }}</p>
-        {% endfor %}
+        <h2>Statistics</h2>
+        <table class="stats-table" id="stats-table">
+            <thead>
+                <tr>
+                    <th>Severity</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total alarms</td>
+                    <td>{{ alarms|length }}</td>
+                </tr>
+                {% for severity, count in severity_counts.items() %}
+                <tr>
+                    <td>{{ severity }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>

@@ -6,7 +6,6 @@ table {
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
     margin-top: 2%;
 }
 th, td {
@@ -56,3 +55,8 @@ tbody {
 		}
 	}
 }
+
+.stats-table{
+	width: 50%;
+}
+
