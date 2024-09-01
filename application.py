@@ -17,6 +17,7 @@ def load_alarms(file_paths):
         lines = text.readlines()
         for line in lines[1:]:
             fields = line.split('¤')
+            print(fields)
             if len(fields) < 8:
                     continue
             alarm = {
